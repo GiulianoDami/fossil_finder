@@ -1,0 +1,42 @@
+{
+    "language": "Go",
+    "dependency_file": "go.mod",
+    "dependencies": ["github.com/spf13/cobra"],
+    "files": [
+        {
+            "path": "main.go",
+            "description": "Entry point and CLI command definitions",
+            "exports": ["func main()"]
+        },
+        {
+            "path": "cmd/init.go",
+            "description": "Initialize a new fossil collection database",
+            "exports": ["var InitCmd"]
+        },
+        {
+            "path": "cmd/add_specimen.go",
+            "description": "Add a new fossil specimen to the database",
+            "exports": ["var AddSpecimenCmd"]
+        },
+        {
+            "path": "cmd/search.go",
+            "description": "Search fossils based on various criteria",
+            "exports": ["var SearchCmd"]
+        },
+        {
+            "path": "cmd/reconstruct.go",
+            "description": "Reconstruct fossil narratives from field notes",
+            "exports": ["var ReconstructCmd"]
+        },
+        {
+            "path": "internal/database/database.go",
+            "description": "Core database logic for storing and retrieving fossil data",
+            "exports": ["type Database struct", "func NewDatabase(string) *Database", "func (d *Database) SaveSpecimen(Specimen)", "func (d *Database) SearchSpecimens(map[string]string) []Specimen"]
+        },
+        {
+            "path": "internal/models/specimen.go",
+            "description": "Data models for fossil specimens and field notes",
+            "exports": ["type Specimen struct", "type FieldNote struct"]
+        }
+    ]
+}
